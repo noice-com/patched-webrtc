@@ -39,6 +39,7 @@ $ pod trunk register you@noice.com 'Your Name' --description='Your Device'
 $ # Publish
 $ pod trunk push ./ios/NoiceWebRTC.podspec
 ```
+> ❕ If you need ownership access to the podspec to publish, let @bengsfort (Matti) know.
 
 ### Android
 
