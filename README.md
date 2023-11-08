@@ -18,8 +18,8 @@ Builds are currently created manually, and then published manually. Ideally we c
 
 Once published, update the platform podfile to point to the new released version:
 
-```
-s.dependency	= { :http => 'https://github.com/noice-com/patched-webrtc/releases/download/<version-number>/WebRTC.xcframework.zip', :flatten => false }
+```ruby
+s.dependency	= 'NoiceWebRTC', '~> 111.0.0'
 ```
 
 ## Creating a build
@@ -32,6 +32,13 @@ s.dependency	= { :http => 'https://github.com/noice-com/patched-webrtc/releases/
 3. Apply the patches included in [patches/](./patches) using [`git apply <patch-file>`](https://git-scm.com/docs/git-apply).
 4. Follow the instructions in [react-native-webrtc/Building WebRTC](https://github.com/react-native-webrtc/react-native-webrtc/blob/master/Documentation/BuildingWebRTC.md#building) to build the project.
 5. Create a new release in this repo, attaching a zip of the `.xcframework`.
+6. Publish to CocoaPods Trunk.
+```sh
+$ # Auth with trunk
+$ pod trunk register you@noice.com 'Your Name' --description='Your Device'
+$ # Publish
+$ pod trunk push ./ios/NoiceWebRTC.podspec
+```
 
 ### Android
 
