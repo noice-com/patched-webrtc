@@ -1,0 +1,19 @@
+#!/bin/sh
+# Assume react-native-webrtc is cloned to parent directory of the root
+build_webrtc="../react-native-webrtc/tools/build-webrtc.py"
+
+# M111+
+webrtc_version=5749
+
+mkdir src
+python3 $build_webrtc --setup --ios src
+
+pushd src/build_webrtc/webrtc/ios/src
+git checkout -b patched-$webrtc_version refs/remotes/branch-heads/$webrtc_version
+git am --signoff <  ../../../../../patches/ant-media-audio-permission.patch
+popd
+
+python3 $build_webrtc --sync --ios src
+python3 $build_webrtc --build --ios src
+
+ls -l src/build_webrtc/build/ios/WebRTC.xcframework.zip
