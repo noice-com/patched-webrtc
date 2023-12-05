@@ -19,7 +19,7 @@ Builds are currently created manually, and then published manually. Ideally we c
 Once published, update the platform podfile to point to the new released version:
 
 ```ruby
-s.dependency	= 'NoiceWebRTC', '~> 111.0.0'
+s.dependency	= 'NoiceWebRTC', '~> 111.0.2'
 ```
 
 ## Creating a build
@@ -28,7 +28,7 @@ s.dependency	= 'NoiceWebRTC', '~> 111.0.0'
 
 1. Make sure you have Python installed and usable.
 2. Follow the instructions in [react-native-webrtc/Building WebRTC](https://github.com/react-native-webrtc/react-native-webrtc/blob/master/Documentation/BuildingWebRTC.md) to get the WebRTC source on your machine and ready to build.
-	- Currently we are targeting revision M111, which would be WebRTC branch `5563`.
+	- Currently we are targeting revision M111 + post-release fixes, which would be WebRTC branch `5749`.
 3. Apply the patches included in [patches/](./patches) using [`git apply <patch-file>`](https://git-scm.com/docs/git-apply).
 4. Follow the instructions in [react-native-webrtc/Building WebRTC](https://github.com/react-native-webrtc/react-native-webrtc/blob/master/Documentation/BuildingWebRTC.md#building) to build the project.
 5. Create a new release in this repo, attaching a zip of the `.xcframework`.
